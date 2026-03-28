@@ -1,0 +1,214 @@
+/* --- Base Layout --- */
+.user-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 2rem 0;
+}
+
+.user-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  gap: 2rem;
+  margin-top: 30px;
+  height: 100%;
+}
+
+.user-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.user-body {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- Sidebar --- */
+.user-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  flex-shrink: 0;
+  background: transparent;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 2000;
+}
+
+.usersidebarContainer {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 1rem;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* --- Top Section --- */
+.userSidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user-welcome {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #4C535F;
+}
+
+.profile-pic {
+  width: 128px;
+  height: 124px;
+  border: 4px solid #FA7F39;
+  border-radius: 38%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.user-name {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  color: #4C535F;
+}
+
+/* --- Nav Buttons --- */
+.userSidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 1rem 0;
+}
+
+.sidebar-btn-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #4C535F;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-btn-user:hover {
+  color: #FA7F39;
+  background-color: rgba(250, 127, 57, 0.08);
+}
+
+.sidebar-btn-user.active {
+  color: #FA7F39;
+  font-weight: bold;
+  position: relative;
+}
+
+.sidebar-btn-user.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: #FA7F39;
+  border-radius: 2px;
+}
+
+.sidebar-btn-user.logout {
+  color: #d9534f;
+}
+
+.sidebar-btn-user.logout:hover {
+  background-color: rgba(217, 83, 79, 0.1);
+}
+
+/* --- Mobile Sidebar Toggle --- */
+.user-sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #FA7F39;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2100;
+  cursor: pointer;
+}
+
+/* --- Overlay --- */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1500;
+}
+
+/* --- Responsive --- */
+
+/* Tablet + Mobile */
+@media (max-width: 1024px) {
+  .user-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .user-sidebar.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .user-sidebar-toggle {
+    display: block;
+  }
+
+  .usersidebarContainer {
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .user-body {
+    flex-direction: column;
+    box-shadow: none;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .profile-pic {
+    width: 100px;
+    height: 96px;
+  }
+
+  .user-welcome {
+    font-size: 16px;
+  }
+
+  .sidebar-btn-user {
+    font-size: 15px;
+    gap: 10px;
+  }
+}

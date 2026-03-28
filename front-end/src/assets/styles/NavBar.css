@@ -1,0 +1,268 @@
+.navBar{
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.navBar li{
+  display: inline;
+  margin: 0px 30px 0px 30px;
+}
+.navBar a{
+  text-decoration: none;
+  color:black;
+  border: 1px solid white;
+  padding:5px 35px 5px 35px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 5px 2px rgba(128, 128, 128, 0.411);
+  font-weight: bold;
+}
+
+
+
+
+/* Make dropdown parent look like other links */
+.navBar li a {
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 16px;
+  display: inline-block;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 180px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Individual menu items - stacked vertically */
+.dropdown-menu li {
+  padding: 12px 20px;
+  white-space: nowrap;
+  display: block;      /* Changed from flex to block for vertical stacking */
+  width: 88%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect */
+.dropdown-menu li:hover {
+  background: #FA7F39;
+  padding: auto;
+  width: auto;
+  margin: auto;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;      /* Changed from flex to block */
+}
+
+/* Optional: Add smooth transition */
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/* ========================= */
+/* 📱 RESPONSIVE NAVBAR FIXES */
+/* ========================= */
+
+/* Default hamburger button hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Nav links wrapper */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* --- Tablets and below --- */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navBar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px; /* adjust based on your navbar height */
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    display: none; /* hidden by default */
+    gap: 25px;
+    padding: 30px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  /* ✅ When .show class is added */
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* Make dropdowns appear inside the column menu */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: #fff;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .navBar li {
+    display: block;
+    margin: 0;
+  }
+
+  .navBar a {
+    background-color: #f9f9f9;
+    width: 80%;
+    text-align: center;
+    border-radius: 12px;
+  }
+}
+
+/* --- Small mobile --- */
+@media (max-width: 480px) {
+  .menu-toggle {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    padding: 20px 0;
+  }
+
+  .navBar a {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+}
+
+
+
+/* ========================= */
+/* 📱 RESPONSIVE DROPDOWN FIXES */
+/* ========================= */
+
+/* Default desktop dropdown (no change) */
+.dropdown-menu {
+  display: none;
+}
+
+/* Hover works on desktop */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.nav-links.show .dropdown-menu {
+  display: none; /* hide by default on mobile */
+}
+
+/* --- Mobile behavior (hamburger opened) --- */
+@media (max-width: 1024px) {
+  .dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown > a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-toggle {
+    font-size: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-right: 15%;
+  }
+  /* Hide dropdowns initially */
+  .dropdown .dropdown-menu {
+    display: none;
+    position: static;
+    background-color: #fff;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ✅ When user taps “Services” (li.open added by JS) */
+  .dropdown.open .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+
+  .dropdown-menu li:hover {
+    background-color: #FA7F39;
+    color: white;
+  }
+
+  .navBar li{
+    width: 100%;
+  }
+    .navBar a{
+    width: 100%;
+  }
+}

@@ -1,0 +1,102 @@
+.settings-container {
+  width: 55%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+.settings-container h2{
+  color :#ff8d21;
+  border-bottom: 2px solid #ff8d21;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+.profile-pic-upload {
+  margin-bottom: 20px;
+}
+.upload-box {
+  border: 1px dashed #ccc;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: #666;
+  border-radius: 20px;
+}
+.settings-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 17px;
+  color:rgb(73, 71, 71);
+}
+.settings-form input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #edf2f6;
+  background-color: #edf2f6;
+  opacity: .7;
+}
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.update-btn {
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.reset-btn {
+  background-color: #eee;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .settings-container {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .settings-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .settings-form label {
+    font-size: 14px;
+  }
+
+  .settings-form input {
+    padding: 10px;
+  }
+
+  .upload-box {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-container {
+    padding: 10px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .update-btn, .reset-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .upload-box {
+    padding: 20px;
+  }
+}

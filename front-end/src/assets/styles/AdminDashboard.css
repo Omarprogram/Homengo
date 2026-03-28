@@ -1,0 +1,509 @@
+/* BookingChart Styles */
+.booking-chart {
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+padding: 24px;
+border: 1px solid #f3f4f6;
+margin-bottom: 20px;
+}
+
+.booking-chart-title {
+font-size: 18px;
+font-weight: 600;
+color: #111827;
+margin-bottom: 24px;
+}
+
+.booking-chart-container {
+height: 300px; /* same as Tailwind h-72 */
+}
+
+/* Customer Reviews Card */
+.customer-reviews {
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+padding: 24px;
+border: 1px solid #f3f4f6;
+margin-bottom: 20px;
+}
+
+/* Header */
+.customer-reviews-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 16px;
+}
+
+.customer-reviews-title {
+font-size: 18px;
+font-weight: 600;
+color: #111827;
+}
+
+.refresh-icon {
+width: 16px;
+height: 16px;
+color: #9ca3af;
+cursor: pointer;
+transition: color 0.2s ease;
+}
+
+.refresh-icon:hover {
+color: #f97316;
+}
+
+/* Rating Section */
+.customer-reviews-rating {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 24px;
+}
+
+.stars {
+display: flex;
+}
+
+.star {
+width: 16px;
+height: 16px;
+}
+
+.star.filled {
+color: #f97316; /* orange */
+fill: currentColor;
+}
+
+.star.empty {
+color: #d1d5db; /* gray */
+}
+
+.rating-score {
+font-size: 18px;
+font-weight: 700;
+color: #111827;
+}
+
+.rating-text {
+font-size: 14px;
+color: #6b7280;
+}
+
+/* Reviews List */
+.reviews-list {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.review-row {
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.review-label {
+font-size: 14px;
+color: #4b5563;
+width: 80px;
+text-align: left;
+}
+
+.review-bar {
+flex: 1;
+background: #e5e7eb;
+border-radius: 9999px;
+height: 8px;
+overflow: hidden;
+}
+
+.review-bar-fill {
+height: 8px;
+border-radius: 9999px;
+transition: width 0.5s ease;
+}
+
+/* Bar Colors */
+.review-bar-green-dark { background: #22c55e; }
+.review-bar-green-light { background: #4ade80; }
+.review-bar-orange-light { background: #fb923c; }
+.review-bar-orange-dark { background: #f97316; }
+.review-bar-red { background: #ef4444; }
+
+/* Order Status Card */
+.order-status {
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+padding: 24px;
+border: 1px solid #f3f4f6;
+margin-bottom: 20px;
+}
+
+/* Header */
+.order-status-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 12px;
+}
+
+.order-status-title {
+font-size: 18px;
+font-weight: 600;
+color: #111827;
+}
+
+/* Subtitle */
+.order-status-subtitle {
+font-size: 12px;
+color: #6b7280;
+margin-bottom: 16px;
+}
+
+/* Chart */
+.order-status-chart-container {
+position: relative;
+height: 190px;
+margin-bottom: 24px;
+}
+
+.order-status-center {
+position: absolute;
+inset: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.order-status-center-text {
+text-align: center;
+}
+
+.ratio-label {
+font-size: 14px;
+font-weight: 500;
+color: #4b5563;
+}
+
+.ratio-value {
+font-size: 18px;
+font-weight: 700;
+color: #111827;
+}
+
+/* Legend */
+.order-status-legend {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.legend-item {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.legend-dot {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+}
+
+.legend-dot.green { background: #22c55e; }
+.legend-dot.orange { background: #f97316; }
+.legend-dot.red { background: #ef4444; }
+
+.legend-text {
+font-size: 14px;
+color: #374151;
+}
+
+/* Popular Services Card */
+.popular-services {
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+padding: 24px;
+border: 1px solid #f3f4f6;
+margin-bottom: 20px;
+}
+
+/* Title */
+.popular-services-title {
+font-size: 18px;
+font-weight: 600;
+color: #111827;
+margin-bottom: 24px;
+}
+
+/* Services List */
+.popular-services-list {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.service-row {
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+/* Rank circle */
+.service-rank {
+width: 32px;
+height: 32px;
+background-color: #f97316; /* orange */
+color: #fff;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 14px;
+}
+
+/* Service Name */
+.service-name {
+font-size: 14px;
+font-weight: 500;
+color: #1f2937;
+}
+
+/* Stats Cards Grid */
+.stats-cards {
+display: grid;
+grid-template-columns: 1fr;
+gap: 16px;
+}
+
+@media(min-width: 768px) {
+.stats-cards {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media(min-width: 1280px) {
+.stats-cards {
+grid-template-columns: repeat(4, 1fr);
+}
+}
+
+/* Individual Card */
+.stats-card {
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+padding: 24px;
+border: 1px solid #f3f4f6;
+transition: box-shadow 0.2s ease;
+}
+
+.stats-card:hover {
+box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+/* Card Content */
+.stats-card-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 12px;
+}
+
+/* Icon */
+.stats-card-icon {
+width: 48px;
+height: 48px;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Icon Colors */
+.icon-bg-orange-light {
+background-color: #ffedd5;
+}
+
+.stats-card-icon-inner {
+width: 24px;
+height: 24px;
+}
+
+.icon-orange {
+color: #f97316;
+}
+
+/* Title & Value */
+.stats-card-title {
+font-size: 14px;
+color: #4b5563;
+margin-bottom: 8px;
+}
+
+.stats-card-value {
+font-size: 24px;
+font-weight: 700;
+color: #111827;
+}
+
+/* Upcoming Bookings Card */
+.upcoming-bookings {
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+padding: 24px;
+border: 1px solid #f3f4f6;
+margin-bottom: 20px;
+}
+
+.upcoming-bookings-title {
+font-size: 18px;
+font-weight: 600;
+color: #111827;
+margin-bottom: 24px;
+}
+
+/* Table wrapper */
+.upcoming-bookings-table-wrapper {
+overflow-x: auto;
+}
+
+/* Table */
+.upcoming-bookings-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.upcoming-bookings-table th,
+.upcoming-bookings-table td {
+text-align: left;
+padding: 12px 8px;
+font-size: 14px;
+color: #374151;
+border-bottom: 1px solid #f3f4f6;
+}
+
+.upcoming-bookings-table th {
+font-weight: 500;
+color: #6b7280;
+}
+
+/* Client Info */
+.client-info {
+display: flex;
+flex-direction: column;
+}
+
+.client-name {
+font-weight: 500;
+color: #111827;
+margin-bottom: 4px;
+}
+
+.client-service {
+font-size: 12px;
+color: #6b7280;
+}
+
+/* Service Date */
+.service-date {
+font-weight: 500;
+color: #111827;
+margin-bottom: 4px;
+}
+
+.service-time {
+font-size: 12px;
+color: #6b7280;
+}
+
+/* Technician */
+.technician {
+font-size: 14px;
+color: #111827;
+}
+
+/* Status Badge */
+.status-badge {
+display: inline-block;
+padding: 4px 10px;
+border-radius: 12px;
+font-size: 12px;
+font-weight: 500;
+text-align: center;
+}
+
+.status-approved {
+background-color: #dcfce7; /* light green */
+color: #16a34a; /* green */
+}
+
+.status-pending {
+background-color: #ffedd5; /* light orange */
+color: #f97316; /* orange */
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+padding: 20px;
+background-color: white;
+min-height: 100vh;
+}
+
+.dashboard-header {
+margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+font-size: 24px;
+font-weight: bold;
+color: #111827;
+margin-bottom: 8px;
+}
+
+.dashboard-underline {
+height: 2px;
+width: 80px;
+background-color: #f97316;
+margin-bottom: 12px;
+}
+
+.dashboard-header p {
+color: #6b7280;
+font-size: 14px;
+}
+
+.dashboard-stats {
+margin-bottom: 24px;
+}
+
+.dashboard-grid {
+display: grid;
+gap: 24px;
+margin-bottom: 24px;
+}
+
+.dashboard-grid-2 {
+grid-template-columns: 1fr;
+}
+
+.dashboard-grid-3 {
+grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+.dashboard-grid-2 {
+grid-template-columns: 1fr 1fr;
+}
+.dashboard-grid-3 {
+grid-template-columns: 1fr 1fr 1fr;
+}
+}

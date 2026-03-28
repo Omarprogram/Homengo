@@ -1,0 +1,175 @@
+/* ======================   ServicesAdminModals.css ====================== */
+
+/* Overlay background */
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 5 !important;
+}
+
+/* Modal box */
+.modal {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 400px; /* keeps it from getting too wide */
+  min-width: 500px; /* optional, keeps it from being too narrow */
+  width: fit-content; /* shrink to content width */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-height: 75%;
+  display: block !important;
+  z-index: 10 !important;
+  position: relative;
+}
+/* Smooth fade-in animation */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Modal title (matches <h2> used in your components) */
+.modal h2,
+.modal .modal-title {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #333333;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Paragraph / description inside modal (if used) */
+.modal p,
+.modal .modal-desc {
+  font-size: 0.98rem;
+  margin: 0 0 14px 0;
+  color: #555555;
+  line-height: 1.45;
+}
+
+/* Form controls layout */
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Labels */
+.modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+/* Inputs / selects / textarea */
+.modal input[type="text"],
+.modal input[type="password"],
+.modal input[type="file"],
+.modal input[type="email"],
+.modal textarea,
+.modal select {
+  padding: 10px 12px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #222222;
+  background: #ffffff;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .12s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* textarea specific */
+.modal textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* focus state */
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 3px 10px rgba(255, 122, 0, 0.08);
+}
+
+/* File input small tweak */
+.modal input[type="file"] {
+  padding: 6px 10px;
+  font-size: 0.92rem;
+}
+
+/* Buttons container */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+/* Base button styling */
+.modal-buttons button {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .16s ease-in-out;
+}
+
+/* Confirm (delete/save) button uses your red color */
+.modal-buttons button:first-child {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+.modal-buttons button:first-child:hover {
+  background-color: #c0392b;
+  transform: translateY(-1px);
+}
+
+/* Cancel button */
+.modal-buttons button:last-child {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+.modal-buttons button:last-child:hover {
+  background-color: #95a5a6;
+  transform: translateY(-1px);
+}
+
+/* Small screens: stack buttons */
+@media (max-width: 520px) {
+  .modal {
+    padding: 18px;
+  }
+  .modal-buttons {
+    flex-direction: column;
+  }
+  .modal-buttons button {
+    width: 100%;
+  }
+}
+
+/* Accessibility: keyboard focus outline */
+.modal-buttons button:focus,
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus {
+  outline: 3px solid rgba(255,122,0,0.16);
+  outline-offset: 2px;
+}

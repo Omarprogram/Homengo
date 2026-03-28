@@ -1,0 +1,145 @@
+/* Grey out days outside the current month */
+.rbc-day-outside-month {
+  background-color: #f8f8f8;
+  color: #bbb;
+  pointer-events: none; /* optional: prevent clicks */
+}
+
+/* Optional: style events nicely */
+.rbc-event {
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Optional: reduce toolbar font size */
+.rbc-toolbar-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* Modal */
+/* Modal overlay */
+/* Modal overlay */
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Modal box */
+.modal-content {
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: auto; /* auto width based on content */
+  max-height: 80vh; /* prevent overflow */
+  overflow-y: auto; /* scroll if content too long */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Close button at bottom-right */
+.close-btn {
+  align-self: flex-end; /* move to bottom right inside flex column */
+  background: #f57c00; /* your orange */
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #e66d00;
+  transform: scale(1.05);
+}
+
+/* Modal title */
+.note-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #f57c00;
+  font-size: 16px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Event component styles */
+.calendar-event {
+  cursor: pointer;
+}
+
+.event-time {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.event-facility {
+  font-size: 12px;
+}
+
+.event-client {
+  font-size: 12px;
+  font-style: italic;
+}
+
+
+/*modal +*/
+/* Modal row wrapper */
+.modal-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+/* Label */
+.modal-row strong {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* Input, textarea, Select */
+.modal-row input,
+.modal-row textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* React-Select styling fix */
+.modal-row .react-select__control {
+  width: 100%;
+  min-height: 38px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* React-Select menu fixes */
+.modal-row .react-select__menu {
+  z-index: 1000; /* ensures dropdown appears above modal */
+}

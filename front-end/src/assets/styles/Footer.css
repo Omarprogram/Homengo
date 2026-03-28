@@ -1,0 +1,137 @@
+.footerContainer{
+  background-color: #E6DFDA;
+  display: flex;
+  flex-direction: row;
+  margin:70px 0px 0px 0px;
+  padding:40px;
+  gap:160px;
+  justify-content: center;
+  bottom: 0;
+  font-family: 'Poppins';
+  
+}
+.footerContainer a{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.footerContainer h4{
+  font-weight: bold;
+  font-size: 20px;
+}
+.column1{
+  display: flex;
+  flex-direction: column;
+  gap:11px;
+}
+.columns{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap:11px;
+}
+.columns button{
+  position: block;
+  background-color: #F57F25;
+  color:white;
+  padding:5px;
+  border-radius: 10px;
+  border : 1px solid #F57F25;
+  width:150px;
+  margin: 0 auto;
+}
+.columns input{
+  color:grey;
+  background-color:#FDCDB2; 
+  border:1px solid #F57F25;
+  border-radius: 10px;
+  padding:10px
+}
+.columns input a:active{
+  border-color: #F57F25;
+}
+
+
+
+/* ========================= */
+/* 📱 RESPONSIVE FOOTER FIXES */
+/* ========================= */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  .footerContainer {
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-around;
+    padding: 30px;
+  }
+
+  .footerContainer h4 {
+    font-size: 18px;
+  }
+
+  .footerContainer a {
+    font-size: 14px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    padding: 25px 15px;
+  }
+
+  .column1,
+  .columns {
+    align-items: center;
+    width: 100%;
+  }
+
+  .columns input {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .columns button {
+    width: 60%;
+    max-width: 200px;
+    font-size: 14px;
+  }
+
+  .footerContainer h4 {
+    font-size: 16px;
+  }
+
+  .footerContainer a {
+    font-size: 13px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .footerContainer {
+    gap: 25px;
+    padding: 20px 10px;
+  }
+
+  .columns input {
+    width: 90%;
+  }
+
+  .columns button {
+    width: 70%;
+  }
+
+  .footerContainer a {
+    font-size: 12px;
+  }
+
+  .footerContainer h4 {
+    font-size: 15px;
+  }
+}

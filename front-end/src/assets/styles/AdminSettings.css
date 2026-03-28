@@ -1,0 +1,271 @@
+/* AdminSettings.css */
+
+/* Container */
+.admin-settings-container {
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Main Content */
+.main-content {
+  width: 100%;
+  max-width: 800px;
+}
+
+.main-content h1 {
+  font-size: 24px;
+  color: #f97316;
+  border-bottom: 2px solid #f97316;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 32px;
+}
+
+/* Form */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Profile Picture Upload */
+.profile-pic-upload {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 24px;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  border: 3px solid #f97316;
+  background-color: #f3f4f6;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.upload-box:hover {
+  background-color: #fff;
+}
+
+.upload-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.upload-box p {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Form Fields */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* Input with pencil wrapper */
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  font-size: 14px;
+  color: #374151;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Readonly state (default) */
+.input-with-icon input[readonly] {
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+/* Editable state */
+.input-with-icon.editable input {
+  background-color: #fff;
+  border-color: #f97316;
+  color: #111827;
+  cursor: text;
+}
+
+.input-with-icon.editable input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* Pencil icon */
+.input-with-icon .edit-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 18px;
+  height: 18px;
+}
+
+.input-with-icon .edit-icon:hover {
+  color: #f97316;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Active edit icon when field is editable */
+.input-with-icon.editable .edit-icon {
+  color: #f97316;
+}
+
+/* Visual feedback for editable fields */
+.input-with-icon.editable::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #f97316;
+  border-radius: 12px;
+  opacity: 0.3;
+  pointer-events: none;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.form-actions button {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #f97316;
+  color: #fff;
+}
+
+.form-actions button[type="submit"]:hover {
+  background-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+.form-actions button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-actions button[type="button"] {
+  background-color: #e5e7eb;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.form-actions button[type="button"]:hover {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.form-actions button[type="button"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-settings-container {
+    padding: 20px;
+  }
+
+  .main-content {
+    padding: 24px;
+  }
+
+  .main-content h1 {
+    font-size: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .upload-box {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-settings-container {
+    padding: 16px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .input-with-icon input {
+    padding: 10px 36px 10px 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

@@ -1,0 +1,407 @@
+/* ======================
+   Container
+====================== */
+.services-container {
+  position: relative;
+  min-height: 80vh;
+  width: 100%;
+  padding: 20px;
+  overflow: visible;
+}
+
+/* ======================
+   Header Section
+====================== */
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.services-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ff7a00;
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ff7a00;
+}
+
+/* ======================
+   Top Buttons
+====================== */
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+.top-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 120px;
+  font-size: 15px;
+  font-weight: 500;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-buttons button:hover {
+  color: #ff7a00;
+}
+
+.top-buttons button::before {
+  content: "+";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ======================
+   Category Management
+====================== */
+.category-management {
+  margin-bottom: 30px;
+}
+
+.category-management h3 {
+  font-size: 18px;
+  color: #ff7a00;
+  margin-bottom: 15px;
+}
+
+/* Container for the toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+/* Hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider styling */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 28px;
+  width:3vw;
+}
+
+/* The circle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* When checked */
+input:checked + .slider {
+  background-color: #ff6b35;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+.category-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between buttons */
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.icon-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.toggle-wrapper {
+  flex: 0 0 auto;      /* prevent growing/shrinking */
+  display: inline-block; /* keep its intrinsic size */
+}
+
+/* ======================
+   Category Card
+====================== */
+.category-card {
+  margin-bottom: 30px;
+}
+
+.category-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  padding: 8px 15px;
+  border: 2px solid #ff7a00;
+  border-radius: 25px;
+}
+
+/* ======================
+   Category Description
+====================== */
+.category-description {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.category-description h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+}
+
+.category-description p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+/* ======================
+   Services List
+====================== */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ======================
+   Service Card
+====================== */
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f5f5f5; /* fallback if no image */
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* text color over image */
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Service Card Image */
+.service-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+
+
+/* Service Card Content */
+.service-card > div:not(.service-buttons) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ======================
+   Service Status
+====================== */
+.service-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ======================
+   Service Buttons
+====================== */
+.service-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers toggle under buttons */
+  gap: 12px; /* spacing between the button group and toggle */
+  margin-left: auto;
+}
+
+
+/* Action Buttons (Edit + Delete) */
+.service-action-buttons {
+  display: flex;
+  border: 1px solid #ff7a00;
+  border-radius: 8px;
+  overflow: hidden; /* keeps pill shape */
+}
+
+.service-action-buttons button {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.service-action-buttons button + button {
+  border-left: 1px solid #ff7a00; /* divider */
+}
+
+
+.service-action-buttons img {
+  width: 24px;
+  height: 24px;
+}
+
+.service-action-buttons button:hover {
+  background: #ff7a00;
+}
+
+.service-action-buttons img,
+.service-action-buttons svg {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.service-action-buttons button:hover img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%);
+  /* turns icon white on hover */
+}
+
+/* ======================
+   Toggle Switch
+====================== */
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: #4caf50;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 21px;
+  height: 21px;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.off {
+  background: #ccc;
+}
+
+.toggle-switch.off::after {
+  right: calc(100% - 23px);
+}
+
+/* ======================
+   Responsive
+====================== */
+@media (max-width: 768px) {
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .top-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .top-buttons button {
+    justify-content: center;
+  }
+
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .service-status {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+/* Big Card around everything */
+.booking-card {
+  padding-top: 80px;   /* enough to clear NavBar */
+  padding-bottom: 80px; /* enough to clear Footer */
+  background: rgb(190, 186, 186);
+  border-radius: 0px;
+  margin: 2rem auto;
+  padding: 3rem;
+  width: 95%;
+  max-width: 1230px;   /* keeps it big but not full width */
+  box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+  overflow: hidden;    /* hide background overflow */
+}
+
+/* Background fills inside the card */
+.booking-container {
+  position: relative;
+  height: auto;   /* adjust size of the card content */
+  min-height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  box-shadow:#434445 20px 10px 50px;
+}
+
+.booking-container > *:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Centered form inside the card */
+.form-wrapper {
+  position: relative;        /* change from absolute */
+  width: 100%;
+  z-index: 1;
+  background: rgba(255, 141, 33, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* start from top, not vertically centered */
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%; /* inputs fill most of the form width */
+  max-width: 1000px;
+}
+
+.booking-form input,
+.booking-form button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.booking-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.booking-form button:hover {
+  background: #0056b3;
+}
+
+
+/* Inner card inside overlay (optional) */
+.inner-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+/* Labels and inputs */
+.booking-form label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 40px;                 
+  color: #000000;
+  margin-top: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255,255,255,0);
+  border-radius: 13px;
+  background: rgba(255,255,255,0.61); /* semi-transparent */
+  color: #000;
+  outline: none;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: rgba(0,0,0,0.5);
+}
+
+/* Map placeholder */
+.map-placeholder {
+  margin-top: 1rem;
+  border-radius: 16px;
+  overflow: hidden;        /* rounds the map edges */
+  height: 300px;           /* adjust height */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* soft shadow */
+  border: 1px solid #ddd;  /* light border to match inputs */
+}
+
+/* Submit button */
+.booking-form button {
+  margin: 1.5rem auto 0 auto; /* top auto bottom auto left/right auto */
+  margin-bottom: 5rem;
+  background: #FA7F39;
+  color: white;
+  border: none; 
+  cursor: pointer;
+  border-radius: 22px;
+  padding: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  transition: background 0.2s;
+  height: 54px;
+  width: 254px;
+}
+
+
+.booking-form button:hover {
+  background: #FA7F39;
+}
+
+.booking-title{
+  font-family: 'Poppins', sans-serif; /* use Poppins font */
+  font-weight: 300;                   /* light */
+  font-size: 46px;                    /* 44px size */
+  color: #000000;                     /* black color */
+  margin-bottom: -30px;             /* space below title */
+}
+
+.booking-desc {
+  font-family: 'Poppins', sans-serif; /* use Poppins font */
+  font-weight: 300;                   /* light */
+  font-size: 40px;                 
+  color: #000000;                     /* black color */
+  margin-bottom: 5rem;              /* space below description */
+  padding-top: 2cm;
+}
+
+.booking-notice {
+  font-family: 'Poppins', sans-serif; /* use Poppins font */
+  font-weight: 300;                   /* light */
+  font-size: 20px;                 
+  color: #000000;                     /* black color */
+  margin-top: 1rem;                  /* space above notice */
+  margin-bottom: 2rem; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Overlay behind modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Notification Card */
+.modal-card {
+  background: rgba(255,255,255,0.85); /* semi-translucent white */
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  width: 676px;
+  height: 360px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease;
+}
+
+.modal-check {
+  width: 118px;
+  height: 118px;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.modal-subtitle {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.modal-footer {
+  margin-top: -1rem;
+  font-size: 20x;
+  font-weight: 500;
+  justify-content: center !important;
+}
+
+.modal-close {
+  margin-top: 1.5rem;
+  background: #FA7F39;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: #d96a2f;
+}
+
+/* Animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* =============================== */
+/* 📱 RESPONSIVE STYLES FOR BOOKING */
+/* =============================== */
+
+@media (max-width: 1024px) {
+  .booking-card {
+    width: 95%;
+    padding: 2rem;
+  }
+
+  .booking-title {
+    font-size: 36px;
+    margin-bottom: 0;
+  }
+
+  .booking-desc {
+    font-size: 28px;
+    padding-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .inner-card {
+    width: 95%;
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .booking-form label {
+    font-size: 28px;
+  }
+
+  .booking-form input,
+  .booking-form textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .map-placeholder {
+    height: 250px;
+  }
+
+  .booking-form button {
+    width: 220px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .modal-card {
+    width: 80%;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .modal-check {
+    width: 90px;
+    height: 90px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal-subtitle,
+  .modal-footer {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-card {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .form-wrapper {
+    padding: 1rem;
+  }
+
+  .booking-title {
+    font-size: 30px;
+  }
+
+  .booking-desc {
+    font-size: 22px;
+    padding-top: 0;
+  }
+
+  .booking-form label {
+    font-size: 20px;
+  }
+
+  .booking-form input,
+  .booking-form textarea {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .map-placeholder {
+    height: 220px;
+  }
+
+  .booking-form button {
+    width: 180px;
+    font-size: 16px;
+  }
+
+  .modal-card {
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .modal-check {
+    width: 70px;
+    height: 70px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .modal-subtitle,
+  .modal-footer {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-card {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .booking-title {
+    font-size: 26px;
+  }
+
+  .booking-desc {
+    font-size: 18px;
+  }
+
+  .booking-form label {
+    font-size: 18px;
+  }
+
+  .booking-form input,
+  .booking-form textarea {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .map-placeholder {
+    height: 180px;
+  }
+
+  .booking-form button {
+    width: 160px;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .modal-card {
+    width: 92%;
+    height: auto;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-subtitle,
+  .modal-footer {
+    font-size: 14px;
+  }
+}

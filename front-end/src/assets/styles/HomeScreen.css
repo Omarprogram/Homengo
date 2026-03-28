@@ -1,0 +1,363 @@
+.homeScreenContainer{
+  font-family: 'Poppins';
+}
+.welcomeBlock{
+  display: flex;
+  flex-direction: row;
+  margin-top: 70px;
+  padding: 30px;
+  justify-content: space-around;
+}
+.welcomeBlock span{
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(100, 99, 99);
+}
+.welcomeBlock p{
+  margin-top: 50px;
+  font-size: 24px;
+  color: grey;
+}
+.welcomeBlock button{
+  background-color: #F57F25;
+  border-radius: 13px;
+  border : 1px solid #F57F25;
+  padding:8px 20px 8px 20px;
+  color:white;
+  margin-top :25px;
+}
+.imgsBlock{
+  display: flex;
+  gap:50px;
+}
+.imgsBlock img{
+  width: 343px;
+  height: 335px;
+  opacity: .8;
+  border-radius: 20px;
+}
+#downImage{
+  margin-top: 170px;
+}
+.aboutUsBlock{
+  margin-top: 40px;
+  background-image: url('../images/homescreen-about-us.png');
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding:30px 30px 15px 30px;
+  font-family: 'Poppins';
+  color:white;
+  opacity: .8;
+}
+.aboutUsBlock h1{
+  font-weight:bolder;
+  margin: 50px 0px 60px 0px;
+  color: white;
+  font-size: 55px;
+  font-family: 'Poppins';
+}
+.aboutUsBlock p{
+  /* margin-bottom: 40px; */
+  font-family: 'Manrope';
+  font-size: 25px;
+  color: white;
+}
+.mainservicesBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  margin-top: 40px;
+}
+.mainservicesBlock button{
+  border:none;
+  background-color: transparent;
+}
+.mainservicesBlock button :hover{
+  background-color: #F57F25;
+}
+.innerServiceContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  gap:76px; 
+  justify-content: center;
+
+}
+.mainservicesBlock h1{
+  text-align: center;
+  font-weight: bolder;
+  margin:40px 0px 40px 0px;
+  font-size: 60px;
+}
+.serviceBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:20px;
+  border: 1.5px solid #FCB790;
+  padding: 55px 35px 55px 35px;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+  max-height: 400px;
+  max-width: 400px;
+  min-width: 400px;
+
+}
+.serviceBlock h3{
+  font-weight: bold;
+}
+.step-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.processBlock{
+  text-align: center;
+  font-weight: bolder;
+  margin:40px 0px 40px 0px;
+  background: linear-gradient(
+    45deg,
+    #FEF3EA,
+    #FCB790,
+    #FDCDB2
+  );
+  padding: 50px;
+}
+.processBlock h1{
+  text-align: center;
+  font-weight: bolder;
+  margin:40px 0px 40px 0px;
+  font-size: 60px;
+}
+.processContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  /* gap:150px; */
+  justify-content: center;
+}
+.processStpes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.processStpes h2{
+  font-size: 18px;
+  font-weight: bold;
+
+}
+.processStpes p{
+  font-size: 15px;
+  font-weight: lighter;
+}
+.processIcons{
+  background-color: white;
+  border-radius: 100px;
+  border: 1px solid salmon;
+  padding:20px 15px 20px 15px;
+}
+.statsBlock{
+  text-align: center;
+  font-weight: bolder;
+  margin:70px 0px 70px 0px;
+  padding:40px;
+}
+.ratesContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  gap:70px;
+  justify-content: center;
+}
+.ratesBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:30px;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.ratesBlock h3{
+  font-size: 18px;
+}
+.ratesBlock h4{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+
+
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN FIXES */
+/* ========================= */
+
+/* For tablets and small laptops */
+@media (max-width: 1024px) {
+  .welcomeBlock {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imgsBlock {
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .imgsBlock img {
+    width: 250px;
+    height: 230px;
+  }
+
+  .aboutUsBlock h1 {
+    font-size: 40px;
+  }
+
+  .aboutUsBlock p {
+    font-size: 20px;
+  }
+
+  .innerServiceContainer {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .serviceBlock {
+    max-width: 320px;
+    min-width: 280px;
+    padding: 35px 20px;
+  }
+
+  .processContainer {
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
+  .ratesContainer {
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .welcomeBlock span {
+    font-size: 22px;
+  }
+
+  .welcomeBlock p {
+    font-size: 18px;
+  }
+
+  .welcomeBlock button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .imgsBlock {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgsBlock img {
+    width: 90%;
+    height: auto;
+  }
+
+  #downImage {
+    margin-top: 30px;
+  }
+
+  .aboutUsBlock h1 {
+    font-size: 32px;
+  }
+
+  .aboutUsBlock p {
+    font-size: 18px;
+  }
+
+  .mainservicesBlock h1,
+  .processBlock h1 {
+    font-size: 36px;
+  }
+
+  .innerServiceContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serviceBlock {
+    width: 90%;
+    min-width: auto;
+    font-size: 16px;
+  }
+
+  .processContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .processContainer hr {
+    display: none;
+  }
+
+  .ratesContainer {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .ratesBlock {
+    width: 90%;
+  }
+
+  .processIcons {
+    font-size: 2rem;
+    padding: 15px;
+  }
+}
+
+/* For very small screens (phones under 480px) */
+@media (max-width: 480px) {
+  .welcomeBlock {
+    padding: 15px;
+  }
+
+  .welcomeBlock span {
+    font-size: 18px;
+  }
+
+  .welcomeBlock p {
+    font-size: 16px;
+  }
+
+  .aboutUsBlock p {
+    font-size: 16px;
+  }
+
+  .serviceBlock {
+    padding: 25px 15px;
+  }
+
+  .processBlock {
+    padding: 20px;
+  }
+
+  .ratesBlock h3,
+  .ratesBlock h4 {
+    font-size: 16px;
+  }
+}

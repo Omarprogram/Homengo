@@ -1,0 +1,143 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px 30px;
+  width: 54%;
+  max-width: 700px;
+  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: modalFadeIn 0.25s ease-in-out;
+}
+
+/* Subtle fade/scale animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.modalHeader h1 {
+  font-size: 32px;
+  color: #ff8d21;
+  margin-bottom: 8px;
+}
+
+.modalHeader h5 {
+  font-size: 17px;
+  font-weight: 300;
+  color: #555;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #ff8d21;
+  font-size: 20px;
+  text-align: center;
+}
+
+.modal-content textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  resize: none;
+  margin-bottom: 20px;
+  font-size: 15px;
+  background-color: #fafafa;
+  transition: border 0.2s ease;
+}
+
+.modal-content textarea:focus {
+  outline: none;
+  border-color: #ff8d21;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.btn.cancel {
+  background: #ddd;
+  color: #000;
+}
+
+.btn.cancel:hover {
+  background: #bbb;
+}
+
+.btn.submit {
+  background: #ff8d21;
+  color: #fff;
+}
+
+.btn.submit:hover {
+  background: #e67a00;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modalHeader h1 {
+    font-size: 26px;
+  }
+
+  .modalHeader h5 {
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

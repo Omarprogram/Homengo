@@ -1,0 +1,185 @@
+.contact-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(139, 82, 8, 0.593);
+  padding: 40px;
+  max-width: 55%;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FA7F39;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  text-align: left;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #FA7F39;
+  box-shadow: 0 0 0 2px rgba(255, 192, 104, 0.2);
+}
+
+.contact-btn {
+  background: #FA7F39;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+
+.contact-btn:hover {
+  background: #fd660e;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 25px;
+  }
+  .contact-title {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+/* ============================ */
+/* 📱 RESPONSIVE STYLING BELOW  */
+/* ============================ */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  .contact-card {
+    max-width: 70%;
+    padding: 35px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .contact-card {
+    max-width: 90%;
+    padding: 30px 25px;
+    box-shadow: 0 6px 18px rgba(139, 82, 8, 0.12);
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .contact-form label {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .contact-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 22px 18px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .contact-title {
+    font-size: 1.4rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .contact-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

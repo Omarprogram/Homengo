@@ -1,0 +1,214 @@
+/* Base styles — mobile-first layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;                 /* fluid width */
+  max-width: 600px;           /* never exceed original design */
+  margin: 20px auto;          /* center horizontally */
+  padding: 25px;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-family: 'Manrope', sans-serif;
+  box-sizing: border-box;     /* prevent padding overflow */
+}
+
+.form-control {
+  font-size: 14px;
+  padding: 8px 12px;
+  width: 100%;                /* make inputs stretch full width */
+  box-sizing: border-box;
+  max-height: 40px;
+  height: auto;
+}
+
+label {
+  font-size: 14px;
+}
+
+button.formBtn {
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+.form-floating input {
+  margin-bottom: 15px;
+}
+
+.form-floating input:focus {
+  border: 2px solid #FCB790;
+  box-shadow: 0 0 2px #FCB790;
+}
+
+.form-control:focus {
+  border-color: #FCB790;
+  box-shadow: none;
+  outline: none;
+}
+
+#formSubtext {
+  font-size: 12.5px;
+}
+
+#formMainText {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Button styling */
+.formBtn {
+  display: block;
+  margin: 20px auto;
+  background-color: #F57F25;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Manrope', sans-serif;
+  border: 2px solid #F57F25;
+  border-radius: 10px;
+  padding: 16px 10px;
+  width: 100%;                /* responsive width */
+  max-width: 380px;
+  transition: 0.3s ease background-color, 0.3s ease transform;
+}
+
+.formBtn:hover {
+  background-color: #e4701f;
+  transform: scale(1.02);
+}
+
+/* Divider line with text */
+#inlinedText {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #D9D9D9;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+#span {
+  background: #fff;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Alternate sign-up buttons */
+.alternatSignupDev {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alternatSignupDev button {
+  border-radius: 10px;
+  padding: 13px;
+  background-color: white;
+  border: 1px solid #dedede;
+  color: grey;
+  font-family: 'Poppins', sans-serif;
+  width: 90%;
+  margin: 0 auto;
+  transition: 0.3s ease background-color;
+}
+
+.alternatSignupDev button:hover {
+  background-color: #f8f8f8;
+}
+
+/* Account link section */
+.hasAnAccDev {
+  text-align: center;
+  margin-top: 40px;
+  color: grey;
+}
+
+.hasAnAccDev button {
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+/* Forgot password & remember me section */
+.forgotPassDev {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;            /* allow wrapping on small screens */
+  margin-top: 45px;
+  margin-bottom: -20px;
+  gap: 10px;
+}
+
+.forgotPassDev button {
+  background-color: white;
+  border: none;
+}
+
+.forgotPassDev input[type="checkbox"] {
+  accent-color: #D9D9D9;
+  cursor: pointer;
+}
+
+/* -------------------- */
+/* RESPONSIVE BREAKPOINTS */
+/* -------------------- */
+/* Desktops (1024px and up) */
+@media (min-width: 1024px) {
+  .form {
+    width: 600px;    /* keep the original intended form width */
+  }
+}
+
+/* ----------- MOBILE VERSION (under 768px) ----------- */
+@media (max-width: 1000px) {
+  /* Hide heading and subtext */
+    .topHeader {
+    display: none;
+  }
+
+  /* Adjust form size and spacing */
+  .form {
+    width: 100%;        /* smaller but centered */
+    height: auto;
+    max-width: 380px;        /* keep a clean, card-sized look */
+    padding: 20px;           /* less padding for mobile */
+    margin: auto auto;       /* vertically centered spacing */
+    border-radius: 15px;
+    z-index: 1000;
+  }
+
+  /* Adjust button and inputs for better mobile usability */
+  .formBtn {
+    width: 100%;
+    max-width: 320px;
+    font-size: 14px;
+    padding: 14px 10px;
+  }
+
+  .form-control {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  /* Slightly smaller text and spacing for compact layout */
+  label {
+    font-size: 13px;
+  }
+
+  .forgotPassDev {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .alternatSignupDev button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
