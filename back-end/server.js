@@ -40,6 +40,11 @@ const allowedOrigins = corsOrigin
   .map((origin) => origin.trim())
   .filter(Boolean);
 
+// Add localhost origins for development
+if (!isProduction) {
+  allowedOrigins.push("http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:3000", "http://127.0.0.1:5173");
+}
+
 // -------------------- Required env validation --------------------
 if (!mongoUri) {
   console.error("❌ Missing required environment variable: MONGO_URI");
