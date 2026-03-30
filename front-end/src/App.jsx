@@ -81,11 +81,17 @@ function App() {
       <ScrollToTop />
       <Suspense fallback={<div style={{ textAlign: "center", padding: "2rem" }}>Loading...</div>}>
         <Routes>
-          {/* Public site */}
-          <Route path="/" element={<Navigate to="/signup" />} />
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <HomeScreen />
+              </MainLayout>
+            }
+          />
           <Route path="/signup" element={<PublicRoute>
-                                          <Signup />
-                                         </PublicRoute>} />
+            <Signup />
+          </PublicRoute>} />
 
           <Route
             path="/HomeScreen"
@@ -127,7 +133,7 @@ function App() {
                 <ContactUs />
               </MainLayout>
             }
-            />
+          />
 
           {/* Admin site (Protected) */}
           <Route
@@ -202,12 +208,12 @@ function App() {
           />
 
           {/* User site */}
-            <Route path="/user" element={<RequireAuth>
-                                          <UserPage />
-                                        </RequireAuth>}>
-              <Route path="history" element={<BookingHistory />} />
-              <Route path="settings" element={<UserSettings />} />
-            </Route>
+          <Route path="/user" element={<RequireAuth>
+            <UserPage />
+          </RequireAuth>}>
+            <Route path="history" element={<BookingHistory />} />
+            <Route path="settings" element={<UserSettings />} />
+          </Route>
         </Routes>
       </Suspense>
     </Router>

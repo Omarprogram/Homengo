@@ -40,10 +40,8 @@ const allowedOrigins = corsOrigin
   .map((origin) => origin.trim())
   .filter(Boolean);
 
-// Add localhost origins for development
-if (!isProduction) {
-  allowedOrigins.push("http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:3000", "http://127.0.0.1:5173");
-}
+const normalizeOrigin = (value = "") => String(value).trim().replace(/\/$/, "");
+const normalizedAllowedOrigins = allowedOrigins.map(normalizeOrigin);
 
 // -------------------- Required env validation --------------------
 if (!mongoUri) {
@@ -95,11 +93,18 @@ app.use(helmet());
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+      const normalizedIncomingOrigin = normalizeOrigin(origin);
+      if (
+        !origin ||
+        normalizedAllowedOrigins.length === 0 ||
+        normalizedAllowedOrigins.includes(normalizedIncomingOrigin)
+      ) {
         return callback(null, true);
       }
 
-      return callback(new Error("Not allowed by CORS"));
+      const corsError = new Error(`Not allowed by CORS: ${origin}`);
+      corsError.status = 403;
+      return callback(corsError);
     },
     credentials: true,
   })

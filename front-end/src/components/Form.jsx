@@ -84,7 +84,11 @@ const Form = () => {
       }
       navigate("/HomeScreen");
     } catch (err) {
-      const message = err.response?.data?.message || "Something went wrong";
+      let message = err.response?.data?.message || "Something went wrong";
+
+      if (!err.response) {
+        message = "Unable to reach server. Check backend URL, server status, and CORS_ORIGIN.";
+      }
 
       // ✅ Show server errors inline instead of alert()
       if (message.toLowerCase().includes("email")) {

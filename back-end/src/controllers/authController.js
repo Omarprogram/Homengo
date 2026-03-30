@@ -2,7 +2,7 @@
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
-const SECRET = process.env.JWT_SECRET || "Fanni_super_secretKey";
+const SECRET = process.env.JWT_SECRET;
 
 // Generate JWT
 const generateToken = (id, role) => jwt.sign({ id, role }, SECRET, { expiresIn: "30d" });
@@ -12,20 +12,29 @@ const generateToken = (id, role) => jwt.sign({ id, role }, SECRET, { expiresIn: 
 export const register = async (req, res) => {
   try {
     const { fullName, userName, email, password, phoneNumber, role } = req.body;
+    const normalizedEmail = String(email || "").trim().toLowerCase();
+    const normalizedUserName = String(userName || "").trim();
 
-    if (!fullName || !userName || !email || !password) {
+    if (!fullName || !normalizedUserName || !normalizedEmail || !password) {
       return res.status(400).json({ success: false, message: "Full name, username, email and password are required" });
     }
 
     // Check for duplicates
-    const existingEmail = await User.findOne({ email });
+    const existingEmail = await User.findOne({ email: normalizedEmail });
     if (existingEmail) return res.status(409).json({ success: false, message: "Email already exists" });
 
-    const existingUsername = await User.findOne({ userName });
+    const existingUsername = await User.findOne({ userName: normalizedUserName });
     if (existingUsername) return res.status(409).json({ success: false, message: "Username already exists" });
 
     // Create user (password hashed automatically by schema)
-    const user = await User.create({ fullName, userName, email, password, phoneNumber, role: role || "user" });
+    const user = await User.create({
+      fullName: String(fullName).trim(),
+      userName: normalizedUserName,
+      email: normalizedEmail,
+      password,
+      phoneNumber,
+      role: role || "C",
+    });
 
     res.status(201).json({
       success: true,
@@ -58,8 +67,9 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    const normalizedEmail = String(email || "").trim().toLowerCase();
     // Validate input
-    if (!email || !password) {
+    if (!normalizedEmail || !password) {
       return res.status(400).json({ 
         success: false,
         message: "Email and password are required" 
@@ -67,8 +77,7 @@ export const login = async (req, res) => {
     }
 
     // Find user by email
-    //Normalize
-    const user = await User.findOne({ email: email.toLowerCase() });
+    const user = await User.findOne({ email: normalizedEmail });
     if (!user) {
       return res.status(401).json({ 
         success: false,

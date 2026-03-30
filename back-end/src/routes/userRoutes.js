@@ -17,19 +17,26 @@ const generateToken = (id, role) => {
 // ✅ Signup
 router.post("/signup", async (req, res) => {
   try {
-    const { fullName, username, email, password, phoneNumber } = req.body;
+    const { fullName, userName, email, password, phoneNumber, role } = req.body;
+    const normalizedEmail = String(email || "").trim().toLowerCase();
+    const normalizedUserName = String(userName || "").trim();
 
-    const userExists = await User.findOne({ email });
+    if (!fullName || !normalizedUserName || !normalizedEmail || !password) {
+      return res.status(400).json({ message: "Full name, username, email and password are required" });
+    }
+
+    const userExists = await User.findOne({ email: normalizedEmail });
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
 
     const user = await User.create({
-      fullName,
-      username,
-      email,
+      fullName: String(fullName).trim(),
+      userName: normalizedUserName,
+      email: normalizedEmail,
       password,
       phoneNumber,
+      role: role || "C",
     });
 
     res.status(201).json({
@@ -38,7 +45,7 @@ router.post("/signup", async (req, res) => {
       user: {
         id: user._id,
         fullName: user.fullName,
-        username: user.username,
+        userName: user.userName,
         email: user.email,
         phoneNumber: user.phoneNumber,
         role: user.role,
@@ -54,8 +61,9 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    const normalizedEmail = String(email || "").trim().toLowerCase();
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: normalizedEmail });
     if (!user) return res.status(401).json({ message: "Invalid credentials" });
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -67,7 +75,7 @@ router.post("/login", async (req, res) => {
       user: {
         id: user._id,
         fullName: user.fullName,
-        username: user.username,
+        userName: user.userName,
         email: user.email,
         phoneNumber: user.phoneNumber,
         role: user.role,
