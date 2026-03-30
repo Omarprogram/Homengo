@@ -5,7 +5,7 @@ import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import moment from "moment";
 import Select from "react-select"; // for searchable dropdown
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "../../assets/styles/calendar.css";
+import "../../assets/styles/Calendar.css";
 import CustomToolbar from "../../components/CustomToolbar";
 import { API_BASE_URL } from "../../api"; // adjust path
 
