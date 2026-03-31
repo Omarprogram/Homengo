@@ -1,0 +1,128 @@
+/* ─── Signup.css ──────────────────────────────────────────────── */
+
+/* 1. Full-viewport hero with smooth background crossfade */
+.signup-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    padding: clamp(1.5rem, 5vw, 4rem) clamp(1rem, 6vw, 6rem);
+    box-sizing: border-box;
+    gap: clamp(1rem, 4vw, 3rem);
+}
+
+/* Crossfade transitions */
+.signup-container.fade-in  { opacity: 1; transition: opacity 0.5s ease-in; }
+.signup-container.fade-out { opacity: 0.6; transition: opacity 0.5s ease-out; }
+
+/* 2. Semi-transparent dark overlay – improves text legibility on any photo */
+.signup-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.25) 60%,
+        rgba(0, 0, 0, 0.10) 100%
+    );
+    pointer-events: none;
+}
+
+/* 3. Left column – grows to fill available space */
+.signup-left {
+    position: relative;   /* sit above the overlay */
+    z-index: 1;
+    flex: 1 1 0;
+    min-width: 0;         /* allow flex shrink below content size */
+    max-width: 520px;
+    color: #ffffff;
+}
+
+.signup-brand {
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #f97316;       /* orange accent – matches your CTA button */
+    margin: 0 0 1rem;
+    line-height: 1.1;
+}
+
+.signup-headline {
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.signup-sub {
+    font-size: clamp(0.8rem, 1.6vw, 1rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    margin: 0;
+    max-width: 44ch;
+}
+
+/* 4. Right column – form card */
+.signup-right {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: clamp(280px, 35vw, 400px);
+}
+
+/* ─── Responsive breakpoints ──────────────────────────────────── */
+
+/* Tablet: stack vertically, centre everything */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.25rem;
+        gap: 2rem;
+    }
+
+    .signup-overlay {
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .signup-left {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .signup-sub {
+        max-width: 100%;
+    }
+
+    .signup-right {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Mobile: tighten spacing further */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .signup-brand {
+        font-size: 1.5rem;
+    }
+
+    .signup-headline {
+        font-size: 1.3rem;
+    }
+
+    .signup-sub {
+        font-size: 0.8rem;
+    }
+}

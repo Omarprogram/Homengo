@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Camera, Edit2, AlertCircle } from "lucide-react";
 import "../../assets/styles/AdminSettings.css";
-import { API_BASE_URL } from "../../api"; // adjust to your config
+import { API_BASE_URL } from "../../api";
 
 export default function AdminSettings({ profileImage, setProfileImage }) {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ export default function AdminSettings({ profileImage, setProfileImage }) {
   const [editableFields, setEditableFields] = useState({});
   const [fetchError, setFetchError] = useState("");
 
-  const token = localStorage.getItem("token"); // Admin token stored in "token"
+  const token = localStorage.getItem("token");
 
   const fetchProfile = useCallback(async () => {
     if (!token) {
@@ -92,8 +92,8 @@ export default function AdminSettings({ profileImage, setProfileImage }) {
 
       const payload = new FormData();
       payload.append("fullName", formData.fullName);
-      payload.append("userName", formData.userName);
-      payload.append("email", formData.email);
+      payload.append("userName", formData.userName);   // ✅ Fix: was missing
+      payload.append("email", formData.email);         // ✅ Fix: was missing
       payload.append("phoneNumber", formData.phoneNumber);
       if (formData.password?.trim()) payload.append("password", formData.password);
       if (formData.profilePicture) payload.append("profilePicture", formData.profilePicture);
@@ -156,7 +156,10 @@ export default function AdminSettings({ profileImage, setProfileImage }) {
             <label className="upload-box">
               {profileImage || formData.profilePicture ? (
                 <img
-                  src={profileImage || URL.createObjectURL(formData.profilePicture)}
+                  src={
+                    profileImage ||
+                    URL.createObjectURL(formData.profilePicture)
+                  }
                   alt="Profile"
                 />
               ) : (
@@ -175,28 +178,48 @@ export default function AdminSettings({ profileImage, setProfileImage }) {
           </div>
 
           <div className="form-fields">
-            {["fullName", "userName", "email", "password", "phoneNumber"].map((field) => (
-              <div className="form-group" key={field}>
-                <label>
-                  {field === "fullName"
-                    ? "Full Name"
-                    : field.charAt(0).toUpperCase() + field.slice(1)}
-                </label>
-                <div className={`input-with-icon ${editableFields[field] ? "editable" : ""}`}>
-                  <input
-                    type={field === "password" ? "password" : field === "email" ? "email" : "text"}
-                    name={field}
-                    value={formData[field]}
-                    onChange={handleInputChange}
-                    readOnly={!editableFields[field]}
-                    placeholder={
-                      field === "password" ? "Leave blank to keep current password" : ""
-                    }
-                  />
-                  <Edit2 className="edit-icon" onClick={() => toggleEditField(field)} />
+            {["fullName", "userName", "email", "password", "phoneNumber"].map(
+              (field) => (
+                <div className="form-group" key={field}>
+                  <label>
+                    {field === "fullName"
+                      ? "Full Name"
+                      : field.charAt(0).toUpperCase() + field.slice(1)}
+                  </label>
+                  <div
+                    className={`input-with-icon ${
+                      editableFields[field] ? "editable" : ""
+                    }`}
+                  >
+                    <input
+                      type={
+                        field === "password"
+                          ? "password"
+                          : field === "email"
+                          ? "email"
+                          : "text"
+                      }
+                      name={field}
+                      value={formData[field]}
+                      onChange={handleInputChange}
+                      readOnly={!editableFields[field]}
+                      placeholder={
+                        field === "password"
+                          ? "Leave blank to keep current password"
+                          : ""
+                      }
+                    />
+                    <Edit2
+                      className="edit-icon"
+                      onClick={(e) => {
+                        e.stopPropagation(); // ✅ Fix: prevents click bubbling
+                        toggleEditField(field);
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
 
           <div className="form-actions">
